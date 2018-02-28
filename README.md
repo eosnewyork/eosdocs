@@ -1,2 +1,2 @@
 # eosdocs
-Musings and documentation of EOS and EOS New York 
+Musings and documents about EOS/Block Producing by EOS New York 
