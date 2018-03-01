@@ -23,12 +23,45 @@ Table of Contents
 5. Security
 6. Monitoring
 7. Automation
+8. Future Plans
+   a. colocation
+   b. cloud
+
 
 
 1. Block Producing Node
-   This will be the main node that eosnewyork.io uses to produce blocks.
+   This will be the main node that eosnewyork.io uses to produce blocks.  
+   a. Specifications:
+      - OS: Ubuntu 17.10
+      - vCPU: 8
+      - RAM: 256 - 512
+      - Storage: 
+        - 512GB SSD (blocks)
+        - 1TB HDD for IPFS
+      - Network: 1 Gbps (scaling as necessary)
+   b. Location:
+      We will be running our initial producing node in the AWS cloud because 
+      we believe one of the core responsibilites of a BP to stay agile and 
+      expand at the speed the blockchain requires.
+   c. Security:
+      We plan on locking this node down using a variety of custom software
+      stacks, built-in unix tools, and industry standards.  As this is the 
+      flagship node security is obviously of the utmost importance.  We also 
+      plan on working with a couple of potential BPs and various security 
+      professionals to produce a white paper on securing a producing node.
+
+2. Non-Producing Node(s)
    a. Specifications
    b. Location
    c. Security
-
-
+3. Backups
+   a. Specifications
+   b. Location
+   c. Security
+4. Load Balancing
+5. Security
+6. Monitoring
+7. Automation
+8. Future Plans
+   a. colocation
+   b. cloud
