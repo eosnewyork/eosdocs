@@ -1,0 +1,34 @@
+##########################################################################
+# 
+#  eosnewyork.io Block Producing Design
+#
+##########################################################################
+
+All opinions, details, and design expressed here are subject to change(STC)
+
+Table of Contents
+1. Block Producing Node
+   a. Specifications
+   b. Location
+   c. Security
+2. Non-Producing Node(s)
+   a. Specifications
+   b. Location
+   c. Security
+3. Backups
+   a. Specifications
+   b. Location
+   c. Security
+4. Load Balancing
+5. Security
+6. Monitoring
+7. Automation
+
+
+1. Block Producing Node
+   This will be the main node that eosnewyork.io uses to produce blocks.
+   a. Specifications
+   b. Location
+   c. Security
+
+
