@@ -15,7 +15,7 @@ Table of Contents
    a. Specifications
    b. Location
    c. Security
-3. Backups
+3. Offsite Backups
    a. Specifications
    b. Location
    c. Security
@@ -27,7 +27,7 @@ Table of Contents
    a. colocation
    b. cloud
 
-
+[FIG 1]
 
 1. Block Producing Node
    This will be the main node that eosnewyork.io uses to produce blocks.  
@@ -51,10 +51,27 @@ Table of Contents
       professionals to produce a white paper on securing a producing node.
 
 2. Non-Producing Node(s)
+   This node(s) will be load balanced nodes used by dApps/users to query
+   the blockchain.  These will be publicly reachable via a load balancing 
+   node.  The idea is to seperate and isolate the producing node as much
+   as possible to ensure maximum uptime.  The second responsiblity of 
+   these nodes is to work as a backup to the producing node in case of 
+   a security compromise or software/network failure.
    a. Specifications
+      - OS: Ubuntu 17.10
+      - vCPU: 8 
+      - RAM: 256 - 512
+      - Storage: 
+        - 512GB HDD (blocks)
+        - 1TB HDD for IPFS
+      - Network: 1 Gbps (scaling as necessary)
    b. Location
+      Resides in the same AWS Region as the main block producing node
    c. Security
-3. Backups
+      These boxes will be public facing so they will need to be a little
+      less constrained than the BP node however connections to the BP node
+      will be locked down in case of compromise.
+3. Offsite Backup
    a. Specifications
    b. Location
    c. Security
