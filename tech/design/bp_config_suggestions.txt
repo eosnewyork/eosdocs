@@ -1,0 +1,15 @@
+##########################################################################
+# 
+#  eosnewyork.io Block Producer Config/Security Suggestions
+#
+##########################################################################
+
+All opinions, details, and design expressed here are subject to change(STC)
+
+Table of Contents
+[Outline]
+iptables rules
+vpn: [wireguard]
+
+scripts:
+        
