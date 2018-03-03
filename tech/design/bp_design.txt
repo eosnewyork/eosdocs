@@ -23,7 +23,8 @@ Table of Contents
 5. Load Balancing
 6. Monitoring
 7. Automation/Configuration
-8. Future Plans
+8. List of Open Source Tooling
+9. Future Plans
    a. Scaling
    a. Colocation
    b. Cloud
@@ -104,7 +105,8 @@ Table of Contents
    
 6. Monitoring
 7. Automation/Configuration
-8. Future Plans
+8. List of Open Source Tooling
+9. Future Plans
    a. Scaling
    b. Colocation
    c. Cloud
