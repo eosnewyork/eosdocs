@@ -1,6 +1,6 @@
 ##########################################################################
 # 
-#  eosnewyork.io Block Producing Design
+# eosnewyork.io Block Producing Design
 #
 ##########################################################################
 
@@ -20,19 +20,23 @@ Table of Contents
    b. Location
    c. Security
 4. Security
-5. Load Balancing
+5. Automation
+   a. Configuration
+   b. Failover
 6. Monitoring
-7. Automation/Configuration
-8. List of Open Source Tooling
-9. Future Plans
+   A constant eye n
+7. Future Plans
    a. Scaling
-   a. Colocation
-   b. Cloud
+   b. Colocation
+   c. Cloud
+   d.Multithreading
+Appendix
+   a. List of Open Source Tooling
 
 [FIG 1]
 
 1. Block Producing Node
-   This will be the main node that eosnewyork.io uses to produce blocks.  
+   This will be the main node that eosnewyork.io uses to produce blocks. 
    a. Specifications:
       - OS: Ubuntu 17.10
       - vCPU: 8
@@ -42,24 +46,27 @@ Table of Contents
         - 1TB HDD for IPFS
       - Network: 1 Gbps (scaling as necessary)
    b. Location:
-      We will be running our initial producing node in the AWS cloud because 
-      we believe one of the core responsibilites of a BP to stay agile and 
-      expand at the speed the blockchain requires.
+      We will be running our initial producing node in a multi cloud environment
+      because we believe one of the core responsibilities of a BP is to stay 
+      agile and expand at the speed the blockchain requires. This environment
+      will also allow us to do additional software and hardware testing which
+      will be used to form educated requirements for future planned co-located
+      or owned datacenter facilities.
    c. Security:
       We plan on locking this node down using a variety of custom software
-      stacks, built-in unix tools, and industry standards.  As this is the 
-      flagship node security is obviously of the utmost importance.  We also 
-      plan on working with a couple of potential BPs and various security 
+      stacks, built-in unix tools, and industry standards. As this is the 
+      flagship node, security is of the utmost importance. We also plan on 
+      working together with other block producers and various security 
       professionals to produce a white paper on configuration and securing 
       a producing node.
 
 2. Non-Producing Node(s)
-   This node(s) will be load balanced nodes used by dApps/users to query
-   the blockchain.  These will be publicly reachable via a load balancing 
-   node.  The idea is to seperate and isolate the producing node as much
-   as possible to ensure maximum uptime.  The second responsiblity of 
-   these nodes is to work as a backup to the producing node in case of 
-   a security compromise or software/network failure.
+   This node(s) will be a load balanced node(s) used by dApps/users to query
+   the blockchain. These will be publicly reachable via the load balancing 
+   node. The idea is to separate and isolate the producing node as much
+   as possible to ensure maximum uptime. The second responsibility of these
+   nodes is to work as a backup to the producing node in case of a security 
+   compromise or software/network failure.
    a. Specifications
       - OS: Ubuntu 17.10
       - vCPU: 8 
@@ -69,17 +76,18 @@ Table of Contents
         - 1TB HDD for IPFS
       - Network: 1 Gbps (scaling as necessary)
    b. Location
-      Resides in the same AWS Region as the main block producing node
+      Resides in the same cloud region as the main block producing node.
    c. Security
       These boxes will be public facing so they will need to be a little
       less constrained than the BP node however connections to the BP node
       will be locked down in case of compromise.
 3. Offsite Backup(s)
-   Thes node(s) will be other standby nodes that are constantly syncing the
-   chain however will reside in distinctly different geographical locations
-   and outside of AWS.  These boxes will remain in the cloud however we will
-   be using different providers to allow for the handling catastrophic failure
-   of an AWS region or of AWS as a whole.
+   These node(s) will be other standby nodes that are constantly syncing the
+   chain however will reside in distinctly different geographical locations and
+   outside of the main Block Producing cloud. These boxes will remain in the 
+   cloud however we will be using different providers to allow for handling
+   catastrophic failure of a specific cloud region or of a specific cloud-
+   provider as a whole.
    a. Specifications
       - OS: Ubuntu 17.10
       - vCPU: 8 
@@ -89,24 +97,50 @@ Table of Contents
         - 1TB HDD for IPFS
       - Network: 1 Gbps (scaling as necessary)
    b. Location
-      TBD.  Most likely at least one will reside outside the US and in Azure and
-      GCE
+      TBD. Most likely at least one will reside outside the United States and in
+      other cloud providers than the main BP node.
    c. Security
       See [link to section 2.c]
 4. Security
-   The security of the BP node is of the utmost important.  There is nothing 
-   else that matters more to us than ensuring that our node is secure and
-   producing blocks.  To this end a whitelist firewalled approach to locking 
-   down BP nodes will be utilized.  This will require a greater understanding 
+   The security of the BP node is of the utmost importantance. There is nothing 
+   else that matters more to us than ensuring that our node is producing blocks
+   and secure. To this end a whitelist firewalled approach to locking 
+   down BP nodes will be utilized. This will require a greater understanding 
    of the port needs of the eosiod as well as the eosioc so the approach will 
-   mature with the software.  Outside of network traffic the hosts will be 
-   secured and patch using the best practices outlined by our security team.
-5. Load Balancing
-   
+   mature with the software. Outside of network traffic the hosts will be 
+   secured and patched using the best practices outlined by our security team. 
+5. Automation
+   Maintaining a consistent configuration across the entire system and the 
+   ability to failover in the event of catastrophic failure is imperative to
+   the success of any distributed system and ours is no exception. 
+   a. Configuration
+   Good configuration management has been the norm in data centers of all sizes
+   for years and there is no expectation of change for our shop. Starting with 
+   our involvment in the community testnet we have worked to create automation
+    scripts to push changes in configuration and software. This work will 
+    continue as we move into our production environment.
+   b. Failover
+   As uptime is a metric that we consider to be a top priority we will be
+   creating an automatic failover system from the main BP node to the non-
+   producing nodes.  If our cloud provider goes down in a certain region we will
+   have scripts in place to failover to a completely different provider in a
+   different region.  These failovers will be tested thourghly using other cloud
+   instances and an eos testnet (either community or our own).
 6. Monitoring
-7. Automation/Configuration
-8. List of Open Source Tooling
-9. Future Plans
+   A constant eye on the sytem's performance is essential in determining at 
+   which point a failover is required. To this end we will be implementing 
+   monitoring of all important system metrics as well as looking to pull in 
+   any relevant eosiod stats.
+7. Future Plans
    a. Scaling
    b. Colocation
    c. Cloud
+   d. Multithreading
+   
+Appendix
+   a. List of Open Source Tooling
+      - Ansible: Automation and configuration managment
+      - Haproxy: load balancer 
+      - Grafana: Monitoring Dashboards
+      - Graphite: Numerical time-series data storage
+      - Diamond: Collection of system metrics
