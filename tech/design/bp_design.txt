@@ -38,7 +38,7 @@ Appendix
 1. Block Producing Node
    This will be the main node that eosnewyork.io uses to produce blocks. 
    a. Specifications:
-      - OS: Ubuntu 17.10
+      - OS: Linux Distro
       - vCPU: 8
       - RAM: 256 - 512
       - Storage: 
@@ -68,7 +68,7 @@ Appendix
    nodes is to work as a backup to the producing node in case of a security 
    compromise or software/network failure.
    a. Specifications
-      - OS: Ubuntu 17.10
+      - OS: Linux Distro
       - vCPU: 8 
       - RAM: 256 - 512
       - Storage: 
@@ -89,7 +89,7 @@ Appendix
    catastrophic failure of a specific cloud region or of a specific cloud-
    provider as a whole.
    a. Specifications
-      - OS: Ubuntu 17.10
+      - OS: Linux Distro
       - vCPU: 8 
       - RAM: 256 - 512
       - Storage: 
