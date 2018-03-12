@@ -44,14 +44,14 @@ Appendix
       - Storage: 
         - 512GB SSD (blocks)
         - 1TB HDD for IPFS
-      - Network: 1 Gbps (scaling as necessary)
+      - Network: 1 Gbps (and will scale up as necessary)
    b. Location:
       We will be running our initial producing node in a multi cloud environment
       because we believe one of the core responsibilities of a BP is to stay 
       agile and expand at the speed the blockchain requires. This environment
       will also allow us to do additional software and hardware testing which
-      will be used to form educated requirements for future planned co-located
-      or owned datacenter facilities.
+      will be used to form educated requirements for out future planned co-located
+      and/or owned data center facility.
    c. Security:
       We plan on locking this node down using a variety of custom software
       stacks, built-in unix tools, and industry standards. As this is the 
@@ -74,20 +74,20 @@ Appendix
       - Storage: 
         - 512GB HDD (blocks)
         - 1TB HDD for IPFS
-      - Network: 1 Gbps (scaling as necessary)
+      - Network: 1 Gbps (and will scale up as necessary)
    b. Location
       Resides in the same cloud region as the main block producing node.
    c. Security
-      These boxes will be public facing so they will need to be a little
-      less constrained than the BP node however connections to the BP node
-      will be locked down in case of compromise.
+      These boxes will be public facing so they will be less constrained than
+      the BP node however connections to the BP node will be locked down in case
+      of compromise.
 3. Offsite Backup(s)
    These node(s) will be other standby nodes that are constantly syncing the
-   chain however will reside in distinctly different geographical locations and
-   outside of the main Block Producing cloud. These boxes will remain in the 
-   cloud however we will be using different providers to allow for handling
-   catastrophic failure of a specific cloud region or of a specific cloud-
-   provider as a whole.
+   chain however will reside in distinctly different geographical and 
+   jurisdictional locations outside of the main Block Producing cloud. These 
+   boxes will remain in the cloud however we will be using different providers
+   to allow for handling catastrophic failure of a specific cloud region or of
+   a specific cloud-provider as a whole.
    a. Specifications
       - OS: Linux Distro
       - vCPU: 8 
@@ -95,72 +95,75 @@ Appendix
       - Storage: 
         - 512GB HDD (blocks)
         - 1TB HDD for IPFS
-      - Network: 1 Gbps (scaling as necessary)
+      - Network: 1 Gbps (and will scale up as necessary)
    b. Location
-      TBD. Most likely at least one will reside outside the United States and in
+      TBD. At least one will reside outside the United States and in
       other cloud providers than the main BP node.
    c. Security
       See [link to section 2.c]
 4. Security
-   The security of the BP node is of the utmost importantance. There is nothing 
+   The security of the BP node is of the utmost importance. There is nothing 
    else that matters more to us than ensuring that our node is producing blocks
    and secure. To this end a whitelist firewalled approach to locking 
    down BP nodes will be utilized. This will require a greater understanding 
    of the port needs of the eosiod as well as the eosioc so the approach will 
    mature with the software. As well as planning on outside network attacks we 
-   plan on using an immutable server infrstructure. Whether in the cloud or our
+   plan on using an immutable server infrastructure. Whether in the cloud or our
    own data center we believe this is going to be best practice as a block
    producer. This architecture requires that the monitoring and failovers work
    flawlessly as any change to the server will require a failover and a rebuild.
-   This extra work is something we thing is necessary to the overall security of
+   This extra work is something we think is necessary to the overall security of
    the ecosystem.
 5. Automation
    Maintaining a consistent configuration across the entire system and the 
    ability to failover in the event of catastrophic failure is imperative to
-   the success of any distributed system and ours is no exception. 
+   the success of any distributed system. 
    a. Configuration
    Good configuration management has been the norm in data centers of all sizes
-   for years and there is no expectation of change for our shop. Starting with 
-   our involvment in the community testnet we have worked to create automation
-   scripts to push changes in configuration and software. This work will 
-   continue as we move into our production environment. 
+   for years and there is no expectation of change for our infrastructure. 
+   Starting with our involvement in the community testnet we have worked to 
+   create automation scripts to push changes in configuration and software. This
+   work will continue as we move into our production environment. 
    b. Failover
    As uptime is a metric that we consider to be a top priority we will be
    creating an automatic failover system from the main BP node to the non-
    producing nodes. If our cloud provider goes down in a certain region we will
    have scripts in place to failover to a completely different provider in a
-   different region. These failovers will be tested thourghly using other cloud
-   instances and an eos testnet (either community or our own).
+   different region. These failovers will be tested thoroughly using other cloud
+   instances and an EOS testnet (either community or our own).
 6. Monitoring
-   A constant eye on the sytem's performance is essential in determining at 
+   A constant eye on the system's performance is essential in determining at 
    which point a failover is required. To this end we will be implementing 
    monitoring of all important system metrics as well as looking to pull in 
    any relevant eosiod stats.
 7. Future Plans
    a. Scaling
-   We strongly believe that the first couple of months of block producing will
-   require an environment that can scale quickly with changing requirements.
-   Whether that is scaling the main producer node to handle multithreading or
-   scaling out storage to handle IPFS integration. To this end we believe that 
-   our monitoring and knowledge around the community will allow us to scale as
-   needed.
+   The first couple of months of block producing will require an environment 
+   that can scale quickly with changing requirements. Whether that is scaling
+   the main producer node to handle multithreading or scaling out storage to
+   handle IPFS integration. To this end we believe that our monitoring and 
+   knowledge around the community will allow us to scale as needed.
    b. Colocation
-   As soon as we deem it feasible we will start scouting co-locations to start 
-   building our own data centers. While we believe in the agility the cloud 
-   offers us in the crucial infancy of this endeavor we see a real need to
-   eventually move to our own secured geographically diverse locations.
+   As soon as the mainnet testing is sufficient and the network as a whole
+   appears relatively stable, we will begin migration to co-locations in order
+   to build our own data centers. While we believe in the agility the cloud 
+   offers us in the crucial infancy of this endeavor, we have heard from from
+   the community and see for ourselves that moving to our own secured, 
+   geographically diverse locations is in the best long term interest for the
+   EOS nework.
    c. Cloud
    While we plan on moving out of the cloud with our main block producing node
-   the cloud will continue to be part of our capacity. Whether that is a dapp
-   development testnet for our partners or for elastic capacity for our main
-   data center. We see it as a valuable tool in our toolbelt 
+   the cloud will continue to be part of our capacity. Whether the cloud is to
+   be used for a dApp development testnet, for our partners, or for elastic 
+   capacity for our main data center. We view the cloud as a valuable tool in our 
+   total service offering.
    d. Multithreading
    As we learn more about the multithreading aspects of the software stack we
    plan on tweaking our design. We believe our elastic approach will easily 
    handle any software stack changes.
 Appendix
    a. Open Source Tooling (STC)
-      - Ansible: Automation and configuration managment
+      - Ansible: Automation and configuration management
       - Haproxy: load balancer 
       - Grafana: Monitoring Dashboards
       - Graphite: Numerical time-series data storage
