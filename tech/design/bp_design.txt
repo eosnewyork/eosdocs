@@ -150,7 +150,7 @@ Appendix
    offers us in the crucial infancy of this endeavor, we have heard from from
    the community and see for ourselves that moving to our own secured, 
    geographically diverse locations is in the best long term interest for the
-   EOS nework.
+   EOS network.
    c. Cloud
    While we plan on moving out of the cloud with our main block producing node
    the cloud will continue to be part of our capacity. Whether the cloud is to
